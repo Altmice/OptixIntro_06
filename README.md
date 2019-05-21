@@ -72,7 +72,7 @@ $$w_s(s)=\frac{n_sp_s(x)}{\sum_i{n_ip_i(x)}}\tag{1.5}$$
 $$w_s(x)=\frac{(n_sp_s(x))^\beta}{\sum_i{n_ip_i(x)}^\beta}\tag{1.6}$$
 Veach指出$\beta=2$效果较好
 
-Optix06给出了$n_f=n_g=1$的情形
+OptixIntro_06给出了$n_f=n_g=1$的情形
 ```c
 float balanceHeuristic(const float a,const float b)
 {
@@ -227,7 +227,7 @@ RT_FUNCTION void integrator(PerRayData& prd, float3& radiance)
 环境中的光照由三部分组成，追迹到光源的直接光照，在粗糙表面弹跳的间接光照和环境均匀光照。分别对应*closesthit_light.cu*, *closesthit.cu* 以及 *miss.cu*.我们重点分析前两者。
 
 ### 3.1 到达光源的直接光照
-这一部分的主要问题是空间面光源对于散射表面的pdf，跟据[Ray Tracing: The rest of your life](https://github.com/petershirley/raytracingtherestofyourlife/blob/master/README.md 下载页面)第7章的推导方法
+这一部分的主要问题是空间面光源对于散射表面的pdf，跟据[Ray Tracing: The rest of your life](https://github.com/petershirley/raytracingtherestofyourlife/blob/master/README.md "下载页面")第7章的推导方法
 
 $$d\omega=dA\cos(\alpha)/Distance^2$$
 
@@ -235,7 +235,7 @@ $Distance$是光线传播距离，$\alpha$是光源表面法线和光线方向�
 按照空间角均匀采样的概率和按面积采样的概率应该相等，所以
 
 $$\frac{p(\omega)dA\cos(\alpha)}{L^2}=\frac{dA}{A}$$
-$$p(\omega)=\frac{L^2}{A\cos{\alpha}}$$
+$$p(\omega)=\frac{L^2}{A\cos{\alpha}}\tag{1.9}$$
 一般来说，概率值会很大，因为相对的空间角很小。
 ```c
 // Very simple closest hit program just for rectangle area lights.
