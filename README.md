@@ -373,7 +373,7 @@ RT_PROGRAM void closesthit()
 ```
  这里针对散射面的积分公式是
 
-$$\frac{bsdf*L*w(pdf_L)*\cos{\alpha}}{pdf_L}$$
+$$\frac{bsdf\ast{L}\ast{w(pdf_L)}\ast{\cos{\alpha}}}{pdf_L}$$
 
 散射方向是跟据光源采样得到的，而不是bsdf。
 多重重要性采样由两部分组成，按照Bsdf采样的另一部分放到closesthit_light()或者是miss_environment_constant()去了。对closesthit_light()来说，由于lightSample.pdf>>thePrd.pdf,因此这部分贡献接近于0。
